@@ -1,63 +1,45 @@
-﻿using System.Collections;   // Needed for ArrayList
-namespace Collection
+﻿// Crate a Class Name "Iphone" should have the following Members:-
+// Create an abstract Method:- Return Type : Void Name : DisplayFeatures()
+// Accessmodifier : public Create a Child Class Name "Iphone15" That Inherits "Iphone" class, should have the following
+// Members:- Instance Variables:- string Model,OS,Camera Generate a Default Constructor and Pass this default Values:-
+// Model = "iPhone 15"; OS = "iOS 17"; Camera = "48 MP Main Camera"; Override the DisplayFeatures() Method and Print the values.
+// Create a Main Class with name "Task":- create object for the Iphone15 class and call the DisplayFeatures() Method.
+
+namespace ConsoleApp10
 {
-    class StudentListProgram
+    internal abstract class Iphone
     {
-        static void Main()
+        public abstract void DisplayFeatures();
+
+        
+
+    }
+    internal class Iphone15 : Iphone
+    {
+        string Model;
+        string OS;
+        string Camera;
+        public Iphone15()
         {
-            // Create an ArrayList to store student names
-            ArrayList students = new ArrayList();
-
-            // Accept 5 student names from the user
-            Console.WriteLine("Enter 5 student names:");
-            for (int i = 0; i < 5; i++)
-            {
-                Console.Write("Enter name " + (i + 1) + ": ");
-                string name = Console.ReadLine();
-                students.Add(name);
-            }
-
-            // Display all student names entered
-            Console.WriteLine("\nList of Students:");
-            foreach (string student in students)
-            {
-                Console.WriteLine(student);
-            }
-
-            // Ask the user to enter a name to search
-            Console.Write("\nEnter a name to search: ");
-            string searchName = Console.ReadLine();
-
-            int index = students.IndexOf(searchName);
-            if (index != -1)
-            {
-                Console.WriteLine($"Student {searchName} found at index {index}");
-            }
-            else
-            {
-                Console.WriteLine($"Student {searchName} not found");
-            }
-
-            // Ask the user to enter a name to remove
-            Console.Write("\nEnter a name to remove: ");
-            string removeName = Console.ReadLine();
-
-            if (students.Contains(removeName))
-            {
-                students.Remove(removeName);
-                Console.WriteLine($"{removeName} removed successfully!");
-            }
-            else
-            {
-                Console.WriteLine($"{removeName} not found in the list!");
-            }
-
-            // Display the updated list
-            Console.WriteLine("\nUpdated Student List:");
-            foreach (string student in students)
-            {
-                Console.WriteLine(student);
-            }
+            Model = "iPhone 15";
+            OS = "iOS 17";
+            Camera = "48 MP Main Camera";
+        }
+        public override void DisplayFeatures()
+        {
+            Console.WriteLine($"Model: {Model}, OS: {OS}, Camera: {Camera}");
         }
     }
+    internal class Task
+    {
+        static void Main(string[] args)
+        {
+            Iphone15 iphone15 = new Iphone15();
+            iphone15.DisplayFeatures();
+            Console.ReadLine();
+        }
+    }
+
+
+
 }
