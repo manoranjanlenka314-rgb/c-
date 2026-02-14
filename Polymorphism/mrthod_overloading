@@ -1,0 +1,79 @@
+
+namespace polymorphism
+{
+    public class Employee
+    {
+        string name;
+        int empid;
+        double baseslary;
+        double total_salary;
+        public Employee(string name, int id, double salary)
+        {
+            this.name = name;
+            empid = id;
+            baseslary = salary;
+        }
+        public virtual double CalculateSalary()
+        {
+            total_salary = baseslary;
+            return total_salary;
+        }
+        public override string ToString()
+        {
+            return $" Name:{name},Employee ID: {empid}, Base Salary: {baseslary}, Total Salary: {total_salary}";
+        }
+
+    }
+
+    public class MAnager : Employee
+    {
+        string Teaamsize;
+        double bonus;
+        public MAnager(string name, int empid, double salary, string teamsize, double bonus) : base(name, empid, salary)
+        {
+            Teaamsize = teamsize;
+            this.bonus = bonus;
+        }
+        public override double CalculateSalary()
+        {
+            double total_salary = base.CalculateSalary() + bonus;
+            return total_salary;
+        }
+        public override string ToString()
+        {
+            return base.ToString() + $", Team Size: {Teaamsize}, Bonus: {bonus}";
+        }
+    }
+    public class SeniorManager : MAnager
+    {
+        string? Allowance;
+
+        public SeniorManager(string name, int empid, double salary, string teamsize, double bonus, string allowance) : base(name, empid, salary, teamsize, bonus)
+        {
+            Allowance = allowance;
+        }
+        public override double CalculateSalary()
+        {
+            double total_salary = base.CalculateSalary() + 5000; // Assuming a fixed allowance of 5000
+            return total_salary;
+        }
+
+    }
+    public class TestPolymorphism
+    {
+        public static void Main()
+        {
+            Employee emp = new Employee("Alice", 101, 50000);
+            Console.WriteLine(emp.ToString());
+            Console.WriteLine("Total Salary: " + emp.CalculateSalary());
+            MAnager mgr = new MAnager("Bob", 102, 70000, "10", 10000);
+            Console.WriteLine(mgr.ToString());
+            Console.WriteLine("Total Salary: " + mgr.CalculateSalary());
+            SeniorManager srMgr = new SeniorManager("Charlie", 103, 90000, "20", 15000, "5000");
+            Console.WriteLine(srMgr.ToString());
+            Console.WriteLine("Total Salary: " + srMgr.CalculateSalary());
+
+        }
+
+    }
+}
