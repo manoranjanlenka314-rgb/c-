@@ -1,25 +1,45 @@
-﻿using System.ComponentModel;
-
-namespace Interface
+﻿namespace Properties
 {
-    public class Calculato
-
+    internal class Class3
     {
-        public int AddingNewEventArgs(int a, int b)
+        private int ID;
+        private string? Name;
+        private int Price;
+      
+
+        public int id
         {
-          return a + b;
+            get  {return ID; }
+            set { ID = value; }
         }
-        public int AddingNewEventArgs(int a, int b,int c)
+        public string? name
         {
-            return a + b + c;
+            get { return Name; }
+            set { Name = value; }
+
+        }
+        public int price
+        {
+            get { return Price; }
+            set { Price = value; }
+        }
+        public void Display()
+        {
+            Console.WriteLine($"ID:{ID}");
+            Console.WriteLine("Name: " + Name);
+            Console.WriteLine("Price: " + Price);
         }
 
-        static void Main()
+    }
+    public class MAin
+    {
+          static void Main()
         {
-            Calculato m1=new Calculato();
-            Console.WriteLine("add " +  m1.AddingNewEventArgs(1,2));
-            Console.WriteLine("add " +  m1.AddingNewEventArgs(1, 2,3));
+            Class3 obj = new Class3();
+            obj.id = 101;
+            obj.name = "Laptop";
+            obj.price = 50000;
+            obj.Display();
         }
-
     }
 }
