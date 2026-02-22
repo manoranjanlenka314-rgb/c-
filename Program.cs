@@ -1,23 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-namespace Collection
+﻿namespace Properties
 {
-    // Online C# Editor for free
-    // Write, Edit and Run your C# code using C# Online Compiler
-
-    public class Student
+    internal class Car
     {
-        public static void Main()
+        private string? Make;
+        private string? Model;
+        private int Year;
+        public string Make1
         {
-            Dictionary<int, string> emp = new Dictionary<int, string>();
-            emp.Add(1, "Name: sam ,Fee:5000");
-            emp.Add(2, "Name: John,Fee:8000");
-            emp.Add(3, "Name: Kiran,Fee:6000");
-            foreach (var i in emp)
-            {
-                Console.WriteLine($"ID: {i.Key}, {i.Value}");
-            }
+            get { return Make!; }
+            set { Make = value; }
+        }
+        public string Model1
+        {
+            get { return Model!; }
+            set { Model = value; }
+        }
+        public int Year1
+        {
+            get { return Year; }
+            set { Year = value; }
+        }
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Car Make: {Make}, \nModel: {Model}, \nYear: {Year}");
+        }
 
+
+    }
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Car car = new Car();
+            car.Make1 = "Toyota";
+            car.Model1 = "Camry";
+            car.Year1 = 2020;
+            car.DisplayInfo();
+            Console.ReadLine();
         }
     }
 }
