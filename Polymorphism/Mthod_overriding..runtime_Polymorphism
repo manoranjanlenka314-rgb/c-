@@ -1,0 +1,50 @@
+1.About Method Overriding..!
+ans:  
+     Method overriding happens when a subclass provides its own implementation of a method that is already defined in its parent class.
+
+It’s a key feature of runtime polymorphism in languages like C#, Java, and others.
+
+⚙️ How It Works
+The method name, parameters, and return type must be the same in both parent and child classes.
+
+The child class version of the method is executed at runtime, even if the object is referenced by a parent class type.
+
+In C#, you typically use the virtual keyword in the base class and override in the derived class.
+
+📌 Example (C#)
+csharp
+class Animal {
+    public virtual void Speak() {
+        Console.WriteLine("Animal makes a sound");
+    }
+}
+
+class Dog : Animal {
+    public override void Speak() {
+        Console.WriteLine("Dog barks");
+    }
+}
+
+class Program {
+    static void Main() {
+        Animal a = new Dog();
+        a.Speak(); // Output: Dog barks
+    }
+}
+🎯 Key Points
+Virtual/Override keywords: Required in C# to enable overriding.
+
+Access modifiers: Must be compatible (e.g., can’t reduce visibility).
+
+Static methods: Cannot be overridden (they’re bound at compile time).
+
+Constructors: Cannot be overridden.
+
+Polymorphism benefit: Allows writing flexible and reusable code where behavior depends on the actual object type at runtime.
+
+✅ Advantages
+Promotes code reusability and extensibility.
+
+Enables dynamic method dispatch (deciding which method to run at runtime).
+
+Makes frameworks and libraries more powerful (e.g., overriding ToString() in C#).
