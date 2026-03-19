@@ -1,0 +1,147 @@
+Inheritance in C# — Simple Summary
+
+Inheritance in C# is an OOP concept where one class (child/derived class) inherits properties and methods from another class (parent/base class).
+
+👉 It helps in:
+
+Code reuse
+
+Reducing duplication
+
+Creating relationships between classes
+
+📌 Basic Syntax
+class Parent
+{
+    public void Show()
+    {
+        Console.WriteLine("Parent class method");
+    }
+}
+
+class Child : Parent
+{
+}
+🔷 Types of Inheritance in C#
+1. Single Inheritance
+
+One child → one parent
+
+class A { }
+class B : A { }
+2. Multilevel Inheritance
+
+Chain inheritance (Grandparent → Parent → Child)
+
+class A { }
+class B : A { }
+class C : B { }
+3. Hierarchical Inheritance
+
+Multiple children → one parent
+
+class A { }
+class B : A { }
+class C : A { }
+4. Multiple Inheritance (NOT supported with classes ❌)
+
+C# does not allow:
+
+class A { }
+class B { }
+class C : A, B { } // ❌ Not allowed
+
+👉 But you can achieve it using interfaces ✔️
+
+5. Hybrid Inheritance
+
+Combination of types (using interfaces)
+
+🔷 Important Keywords
+
+base → calls parent class constructor/method
+
+virtual → allows method override
+
+override → overrides parent method
+
+sealed → prevents inheritance
+
+abstract → incomplete class (must be inherited)
+
+🔥 10 Important Interview Questions with Answers
+✅ 1. What is inheritance in C#?
+
+Answer:
+Inheritance allows a class to reuse properties and methods of another class using : symbol.
+
+✅ 2. Why do we use inheritance?
+
+Answer:
+
+Code reusability
+
+Maintainability
+
+Reduces redundancy
+
+Supports polymorphism
+
+✅ 3. What is a base class and derived class?
+
+Answer:
+
+Base class → Parent
+
+Derived class → Child that inherits from base
+
+✅ 4. Does C# support multiple inheritance?
+
+Answer:
+No, C# does not support multiple inheritance with classes, but it supports it using interfaces.
+
+✅ 5. What is multilevel inheritance?
+
+Answer:
+A class inherits from another class which itself is inherited from another class.
+
+✅ 6. What is hierarchical inheritance?
+
+Answer:
+Multiple classes inherit from a single base class.
+
+✅ 7. What is the use of base keyword?
+
+Answer:
+Used to access parent class members or constructor.
+
+base.Show();
+✅ 8. What is method overriding?
+
+Answer:
+Redefining a parent class method in child class using override.
+
+class A
+{
+    public virtual void Show() { }
+}
+
+class B : A
+{
+    public override void Show() { }
+}
+✅ 9. What is an abstract class in inheritance?
+
+Answer:
+A class that cannot be instantiated and is meant to be inherited.
+
+abstract class A
+{
+    public abstract void Show();
+}
+✅ 10. What is a sealed class?
+
+Answer:
+A class that cannot be inherited.
+
+sealed class A { }
