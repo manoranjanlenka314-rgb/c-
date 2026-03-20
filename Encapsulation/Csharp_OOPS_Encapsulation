@@ -1,0 +1,99 @@
+Encapsulation in C# (Simple Summary)
+
+Encapsulation means hiding internal data and allowing access only through methods or properties.
+
+👉 In simple words:
+“Protect your data and control how it is used.”
+
+🔸 How it works in C#
+
+Use private variables (fields) → hide data
+
+Use public properties (get/set) → control access
+
+🔸 Example:
+class Student
+{
+    private int age;   // hidden data
+
+    public int Age     // property
+    {
+        get { return age; }
+        set
+        {
+            if (value > 0)
+                age = value;
+        }
+    }
+}
+
+✔ Here:
+
+age is hidden
+
+Access only through Age property
+
+Validation is applied
+
+🔹 Why Encapsulation?
+
+Protects data 🔒
+
+Improves security
+
+Makes code flexible & maintainable
+
+Allows validation before setting values
+
+🔥 Top Interview Questions & Answers
+1. What is encapsulation?
+
+👉 Encapsulation is wrapping data and methods into a single unit and restricting direct access using access modifiers.
+
+2. How do you achieve encapsulation in C#?
+
+👉 By using:
+
+Private fields
+
+Public properties (get/set)
+
+3. What are access modifiers used in encapsulation?
+
+👉
+
+private → restrict access
+
+public → allow controlled access
+
+protected, internal → partial access
+
+4. What is a property in C#?
+
+👉 A property is a method used to get or set the value of a private field.
+
+5. Difference between field and property?
+
+👉
+
+Field → stores data
+
+Property → controls access to data
+
+6. What is automatic property?
+public int Age { get; set; }
+
+👉 No need to declare a separate field manually.
+
+7. Can we make a property read-only?
+public int Age { get; private set; }
+
+👉 Yes, by using private set
+
+8. What is data hiding?
+
+👉 Hiding internal data from outside access — main concept of encapsulation.
+
+9. Why is encapsulation important?
+
+👉 It prevents misuse of data and keeps the program secure and clean.
