@@ -1,0 +1,41 @@
+🌐 Summary of Abstraction in OOPs
+Definition: Abstraction is the process of hiding implementation details and showing only the essential features of an object.
+
+Purpose: It reduces complexity and increases efficiency by focusing on what an object does rather than how it does it.
+
+Implementation: Achieved using abstract classes and interfaces in languages like Java and C#.
+
+Benefit: Promotes loose coupling, enhances code reusability, and makes systems easier to maintain.
+
+Real-life analogy: Driving a car—you know how to use the steering wheel and brakes, but you don’t need to understand the internal combustion engine.
+
+🎯 10 Questions and Answers on Abstraction
+Q: What is abstraction in OOP?
+A: Abstraction is the concept of hiding implementation details and exposing only the functionality to the user.
+
+Q: How is abstraction different from encapsulation?
+A: Abstraction focuses on hiding implementation (what vs. how), while encapsulation focuses on hiding data using access modifiers.
+
+Q: How do you achieve abstraction in C#?
+A: By using abstract classes and interfaces.
+
+Q: Can we create an object of an abstract class?
+A: No, abstract classes cannot be instantiated directly. They must be inherited.
+
+Q: What is the role of interfaces in abstraction?
+A: Interfaces define a contract (methods/properties) without implementation, ensuring abstraction and multiple inheritance.
+
+Q: Why is abstraction important in software design?
+A: It simplifies complex systems, reduces dependencies, and makes code easier to extend and maintain.
+
+Q: Give a real-world example of abstraction.
+A: An ATM machine: users interact with buttons and screen without knowing the backend banking logic.
+
+Q: What happens if a class inherits an abstract class but doesn’t implement its abstract methods?
+A: That class must also be declared abstract, otherwise it will cause a compilation error.
+
+Q: Can abstract classes have constructors?
+A: Yes, abstract classes can have constructors, which are called when derived classes are instantiated.
+
+Q: Which provides more abstraction: abstract class or interface?
+A: Interfaces provide complete abstraction (no implementation), while abstract classes provide partial abstraction (can have both abstract and concrete methods).
