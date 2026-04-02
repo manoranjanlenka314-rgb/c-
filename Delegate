@@ -1,0 +1,82 @@
+Delegates in C# are type-safe function pointers that allow methods to be treated as objects, enabling flexible programming patterns such as callbacks, event handling, and passing behavior as parameters. They form the foundation of events, anonymous methods, and lambda expressions in C#.
+
+📘 Long Summary of Delegates in C#
+What is a Delegate?
+A delegate is a type that holds a reference to a method with a specific signature and return type.
+
+It is similar to a function pointer in C/C++, but type-safe and secure.
+
+Declared using the delegate keyword.
+
+Key Characteristics
+Type-safe: The method signature must match the delegate declaration.
+
+Supports static and instance methods.
+
+Encapsulation: Methods can be invoked indirectly through delegates.
+
+Foundation for events: Events in C# are built on delegates.
+
+Why Use Delegates?
+Callbacks: Pass methods as parameters to other methods.
+
+Event handling: GUI controls and other components use delegates to notify subscribers.
+
+Flexibility: Enables writing reusable and modular code.
+
+Functional programming: Works seamlessly with LINQ and lambda expressions.
+
+Syntax Example
+csharp
+// Declaration
+public delegate void MyDelegate(string message);
+
+// Usage
+MyDelegate del = new MyDelegate(PrintMessage);
+del("Hello, Delegate!");
+
+void PrintMessage(string msg)
+{
+    Console.WriteLine(msg);
+}
+Types of Delegates
+Single-cast delegate: Points to one method.
+
+Multicast delegate: Points to multiple methods (using += operator).
+
+Generic delegates: Func<>, Action<>, Predicate<>.
+
+Real-Life Analogy
+Think of a delegate as a remote control:
+
+The remote (delegate) doesn’t perform the action itself.
+
+It points to a device (method) and triggers it when pressed.
+
+📝 25 Interview-Style Questions with Answers on Delegates
+#	Question	Answer
+1	What is a delegate in C#?	A type-safe object that holds a reference to a method.
+2	How do you declare a delegate?	Using the delegate keyword followed by method signature.
+3	Are delegates type-safe?	Yes, they enforce matching signatures.
+4	Difference between delegate and function pointer?	Delegates are type-safe and secure; function pointers are not.
+5	Can a delegate reference multiple methods?	Yes, via multicast delegates.
+6	What keyword is used to declare a delegate?	delegate.
+7	What is a single-cast delegate?	A delegate pointing to one method.
+8	What is a multicast delegate?	A delegate pointing to multiple methods.
+9	How do you add methods to a multicast delegate?	Using += operator.
+10	How do you remove methods from a multicast delegate?	Using -= operator.
+11	What is Func<> delegate?	A generic delegate that returns a value.
+12	What is Action<> delegate?	A generic delegate that returns void.
+13	What is Predicate<> delegate?	A delegate that returns a boolean.
+14	Can delegates be used with static methods?	Yes.
+15	Can delegates be used with instance methods?	Yes.
+16	What is the role of delegates in events?	Events are built on delegates to notify subscribers.
+17	How do delegates support callbacks?	By passing methods as parameters to other methods.
+18	Can delegates be chained?	Yes, using multicast delegates.
+19	What happens if one method in a multicast delegate throws an exception?	Execution stops, and the exception propagates.
+20	Can delegates be null?	Yes, invoking a null delegate causes NullReferenceException.
+21	How to safely invoke a delegate?	Using ?.Invoke() syntax.
+22	What is the difference between delegate and interface?	Delegate passes behavior dynamically; interface defines a contract.
+23	Can delegates be generic?	Yes, using Func<>, Action<>, etc.
+24	Are delegates reference types or value types?	Reference types.
+25	Why are delegates important in LINQ?	They allow passing lambda expressions and methods as parameters.
