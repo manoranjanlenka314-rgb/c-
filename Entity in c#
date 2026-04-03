@@ -1,0 +1,106 @@
+In C#, an entity often refers to a user-defined type (UDT) that models real-world objects or logical units in your application. These are typically implemented as classes or structs, and they encapsulate both data (fields/properties) and behavior (methods).
+
+When working with Entity Framework (EF) or similar ORMs, entities are the classes that map directly to database tables. Each property in the entity corresponds to a column in the table, and each instance of the entity corresponds to a row. But even outside EF, the term "entity" is widely used to mean a custom type you define to represent meaningful data in your domain.
+
+🔹 Characteristics of Entities in C#
+User-defined: You create them as classes or structs, tailored to your application.
+
+Encapsulation: They bundle attributes (properties) and behaviors (methods).
+
+Identity: Entities usually have a unique identifier (like Id).
+
+Persistence: In EF, entities are persisted to a database; in plain C#, they can exist in memory or be serialized.
+
+Relationships: Entities can reference other entities, forming associations.
+
+🔹 Example
+csharp
+public class Student
+{
+    public int StudentId { get; set; }   // Primary Key
+    public string Name { get; set; }
+    public string Course { get; set; }
+
+    // Behavior
+    public void Enroll(string subject)
+    {
+        Console.WriteLine($"{Name} enrolled in {subject}");
+    }
+}
+Here, Student is a user-defined entity type. It has attributes (StudentId, Name, Course) and a behavior (Enroll method).
+
+📝 25 Questions and Answers on Entities (C# User-Defined Types)
+1. Q: What is an entity in C#?
+A: An entity in C# is a user-defined type, usually a class or struct, that represents a real-world concept or logical unit. It encapsulates properties and methods to model data and behavior.
+
+2. Q: How do you define an entity in C#?
+A: You define an entity by creating a class or struct with properties and methods. For example, a Product entity might have ProductId, Name, and Price properties, along with methods like ApplyDiscount().
+
+3. Q: Why are entities important in C# applications?
+A: Entities provide structure and clarity. They allow developers to model real-world problems, enforce data integrity, and simplify communication between application layers.
+
+4. Q: What is the difference between an entity and a class?
+A: All entities are classes (or structs), but not all classes are entities. Entities specifically represent domain objects with identity and persistence, while classes can be utility or service types.
+
+5. Q: How do entities relate to databases in C#?
+A: In frameworks like Entity Framework, entities map to database tables. Each property corresponds to a column, and each object instance corresponds to a row.
+
+6. Q: What is an entity property?
+A: A property is a field within an entity that holds data. For example, Name in a Customer entity stores the customer’s name.
+
+7. Q: What is the role of an entity’s primary key?
+A: The primary key uniquely identifies each entity instance. In C#, this is often represented by an Id property, ensuring no two entities are confused.
+
+8. Q: Can entities have methods in C#?
+A: Yes. Entities can encapsulate behavior through methods. For example, a BankAccount entity might have a Deposit() and Withdraw() method.
+
+9. Q: What is an entity class in Entity Framework?
+A: An entity class in EF is a C# class mapped to a database table. EF uses conventions or configurations to link properties to columns.
+
+10. Q: What is an entity instance?
+A: An entity instance is a specific object created from an entity class. For example, new Student { Name = "John" } is an instance of the Student entity.
+
+11. Q: How do entities support encapsulation?
+A: Entities hide internal data and expose controlled access through properties and methods. This ensures data integrity and prevents misuse.
+
+12. Q: What is a navigation property in an entity?
+A: A navigation property links one entity to another. For example, a Student entity may have a Course property referencing a Course entity.
+
+13. Q: What is a weak entity in C# terms?
+A: A weak entity depends on another entity for identification. For example, OrderItem depends on Order because it cannot exist independently.
+
+14. Q: What is a strong entity in C# terms?
+A: A strong entity has its own identity and can exist independently. For example, Customer is a strong entity because it has its own CustomerId.
+
+15. Q: How do entities relate to CRUD operations?
+A: Entities are central to CRUD. Each operation manipulates entity instances: creating new ones, reading existing ones, updating properties, or deleting them.
+
+16. Q: What is an entity lifecycle in C#?
+A: The lifecycle includes creation (new keyword), persistence (saving to DB), retrieval (loading from DB), update (modifying properties), and deletion.
+
+17. Q: What is an entity set?
+A: An entity set is a collection of entities, often represented as a DbSet<T> in Entity Framework. Example: DbSet<Student> represents all students.
+
+18. Q: How do entities enforce data integrity?
+A: Entities enforce integrity through validation logic, constraints, and unique identifiers. EF also applies database constraints like foreign keys.
+
+19. Q: What is the difference between an entity and a DTO?
+A: An entity represents the database structure, while a DTO (Data Transfer Object) is used to transfer data between layers without exposing the entity directly.
+
+20. Q: How do entities support relationships in C#?
+A: Entities can reference other entities through navigation properties. EF uses these to establish one-to-one, one-to-many, or many-to-many relationships.
+
+21. Q: What is an entity in UML diagrams?
+A: In UML, an entity is represented as a class with attributes and methods. It visually models the structure of the system.
+
+22. Q: How do entities work in REST APIs?
+A: Entities are exposed as resources. For example, a User entity is represented by the /users endpoint, with JSON mapping properties.
+
+23. Q: What is an entity class in C# with annotations?
+A: An entity class can use attributes like [Key], [Required], or [ForeignKey] to define database mapping and constraints.
+
+24. Q: How do entities support object-oriented principles?
+A: Entities embody encapsulation, abstraction, inheritance, and polymorphism. They model real-world objects with both state and behavior.
+
+25. Q: Why are entities considered user-defined types in C#?
+A: Because developers explicitly define them to represent domain-specific concepts. They are not built-in types like int or string, but custom classes/structs tailored to the application.
