@@ -1,0 +1,99 @@
+Summary: Structure Types in C#
+In C#, a structure (struct) is a value type used to group related variables under one name. It’s similar to a class but has important differences:
+
+Value Type: Stored on the stack (by default), unlike classes which are reference types stored on the heap.
+
+Lightweight: Best for small data models (like coordinates, colors, points).
+
+No Inheritance: Structs cannot inherit from other structs or classes, but they can implement interfaces.
+
+Default Constructor: You cannot define a parameterless constructor; the compiler provides one automatically.
+
+Members Allowed: Fields, properties, methods, constructors (with parameters), indexers, operators, and events.
+
+Initialization: All fields must be assigned before use.
+
+Copy Behavior: When assigned, structs are copied by value, not by reference.
+
+👉 Think of a struct as a compact container for related data, useful when you don’t need the overhead of a class.
+
+🎯 25 Practice Questions with Answers
+Basics
+Q: What is a struct in C#?
+A: A value type that groups related variables under one name, similar to a lightweight class.
+
+Q: Where are structs stored in memory?
+A: On the stack (by default), since they are value types.
+
+Q: Can structs inherit from other structs?
+A: No, structs cannot inherit from classes or other structs.
+
+Q: Can structs implement interfaces?
+A: Yes, structs can implement interfaces.
+
+Q: What is the default accessibility of struct members?
+A: Private.
+
+Constructors & Initialization
+Q: Can you define a parameterless constructor in a struct?
+A: No, the compiler provides one automatically.
+
+Q: Can structs have parameterized constructors?
+A: Yes, but all fields must be initialized inside them.
+
+Q: What happens if you don’t initialize struct fields?
+A: The compiler forces you to assign values before use.
+
+Q: Can structs have destructors?
+A: No, destructors are not allowed in structs.
+
+Q: Can structs have static constructors?
+A: Yes, static constructors are allowed.
+
+Behavior & Usage
+Q: What happens when you assign one struct to another?
+A: A copy of the value is made (value semantics).
+
+Q: Can structs be null?
+A: No, unless declared as nullable (e.g., Point?).
+
+Q: Are structs sealed?
+A: Yes, implicitly—they cannot be inherited.
+
+Q: Can structs contain methods?
+A: Yes, including instance and static methods.
+
+Q: Can structs contain properties?
+A: Yes, both auto‑implemented and custom properties.
+
+Advanced
+Q: Can structs overload operators?
+A: Yes, operator overloading is supported.
+
+Q: Can structs have indexers?
+A: Yes, indexers are allowed.
+
+Q: Can structs contain events?
+A: Yes, events are supported.
+
+Q: Can structs contain constants and static fields?
+A: Yes, both are allowed.
+
+Q: Can structs be generic?
+A: Yes, you can define generic structs.
+
+Comparison with Classes
+Q: What is the key difference between struct and class assignment?
+A: Structs are copied by value; classes are copied by reference.
+
+Q: Which is better for small data models: struct or class?
+A: Struct, because it’s lightweight and avoids heap allocation.
+
+Q: Can structs participate in inheritance hierarchies?
+A: No, only classes can.
+
+Q: Do structs support polymorphism?
+A: Only via interface implementation, not inheritance.
+
+Q: Why might you choose a struct over a class?
+A: For performance reasons when modeling small, immutable data.
