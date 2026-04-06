@@ -1,0 +1,159 @@
+1. Interfaces in C#
+An interface is a contract that defines a set of members (methods, properties, events, indexers) without implementation.
+
+Classes or structs that implement an interface must provide concrete definitions for all its members.
+
+Interfaces support multiple inheritance in C#, unlike classes.
+
+They are commonly used to achieve abstraction, loose coupling, and polymorphism.
+
+Key Points:
+
+Declared using the interface keyword.
+
+Cannot contain fields or constructors.
+
+Members are implicitly public and abstract.
+
+A class can implement multiple interfaces.
+
+Interfaces can inherit from other interfaces.
+
+Example:
+
+csharp
+public interface IShape
+{
+    double Area();
+    double Perimeter();
+}
+
+public class Circle : IShape
+{
+    public double Radius { get; set; }
+    public Circle(double radius) => Radius = radius;
+
+    public double Area() => Math.PI * Radius * Radius;
+    public double Perimeter() => 2 * Math.PI * Radius;
+}
+2. User-Defined Types (UDTs)
+In C#, user-defined types are custom data structures created by developers to model real-world entities.
+
+Types include:
+
+Classes → Reference types, support inheritance, encapsulation, polymorphism.
+
+Structs → Value types, lightweight, cannot inherit from classes but can implement interfaces.
+
+Enums → Represent a set of named constants.
+
+Interfaces → Define contracts without implementation.
+
+Delegates → Type-safe function pointers, used for callbacks/events.
+
+Example of a Struct:
+
+csharp
+public struct Point
+{
+    public int X { get; set; }
+    public int Y { get; set; }
+}
+3. Interfaces vs Abstract Classes
+Interfaces → Only contracts, no implementation, multiple inheritance allowed.
+
+Abstract Classes → Can have both abstract and concrete methods, single inheritance only.
+
+4. Why Interfaces Matter
+Promote dependency injection and testability.
+
+Enable plug-and-play architecture.
+
+Allow different classes to share common behavior without being tightly coupled.
+
+🔹 25 Interview Questions & Answers
+Basics
+Q: What is an interface in C#?
+A: A contract that defines members without implementation; classes/structs must implement them.
+
+Q: Can interfaces have fields?
+A: No, only methods, properties, events, and indexers.
+
+Q: Can a class inherit multiple interfaces?
+A: Yes, C# supports multiple interface inheritance.
+
+Q: What is the default access modifier for interface members?
+A: Public.
+
+Q: Can interfaces contain constructors?
+A: No, they cannot.
+
+Advanced
+Q: Difference between interface and abstract class?
+A: Interfaces define only contracts; abstract classes can have both abstract and concrete methods.
+
+Q: Can interfaces inherit other interfaces?
+A: Yes, an interface can extend multiple interfaces.
+
+Q: What happens if a class doesn’t implement all interface members?
+A: It must be declared abstract.
+
+Q: Can structs implement interfaces?
+A: Yes, but they cannot inherit from classes.
+
+Q: Can an interface have static methods?
+A: Yes, starting from C# 8.0, interfaces can have static members and default implementations.
+
+User-Defined Types
+Q: What are user-defined types in C#?
+A: Custom types like classes, structs, enums, interfaces, and delegates.
+
+Q: Difference between class and struct?
+A: Class → reference type, supports inheritance. Struct → value type, lightweight, no inheritance.
+
+Q: What is an enum?
+A: A set of named constants representing integral values.
+
+Q: Can enums inherit from other types?
+A: No, but they can have different underlying numeric types (int, byte, etc.).
+
+Q: What is a delegate?
+A: A type-safe function pointer used for callbacks and events.
+
+Practical
+Q: Why use interfaces in real projects?
+A: For dependency injection, testability, and loose coupling.
+
+Q: Example of interface in dependency injection?
+A: ILogger interface implemented by FileLogger, DatabaseLogger.
+
+Q: Can you implement multiple interfaces with same method signature?
+A: Yes, but you may need explicit interface implementation to avoid ambiguity.
+
+Q: What is explicit interface implementation?
+A: Implementing interface members privately, accessible only via interface reference.
+
+Q: Example of explicit implementation?
+A:
+
+csharp
+interface IPrinter { void Print(); }
+class Report : IPrinter
+{
+    void IPrinter.Print() => Console.WriteLine("Printing Report");
+}
+Conceptual
+Q: How do interfaces support polymorphism?
+A: Different classes implementing the same interface can be treated uniformly.
+
+Q: Can you create an object of an interface?
+A: No, but you can reference objects of classes implementing it.
+
+Q: What is marker interface?
+A: An empty interface used to tag classes (e.g., ISerializable).
+
+Q: Can interfaces define events?
+A: Yes, they can declare events.
+
+Q: Why are interfaces important in OOP?
+A: They enforce abstraction, promote flexibility, and enable multiple inheritance.
