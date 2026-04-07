@@ -1,0 +1,79 @@
+A class is a blueprint for creating objects.
+
+It defines fields (variables), properties, methods, and constructors.
+
+Classes support encapsulation (hiding data), inheritance (reusing code), and polymorphism (flexibility in behavior).
+
+Example:
+
+csharp
+public class Car
+{
+    public string Brand { get; set; }
+    public void Drive()
+    {
+        Console.WriteLine($"{Brand} is driving.");
+    }
+}
+🔹 Summary of Polymorphism in C#
+Polymorphism means "many forms."
+
+It allows methods to behave differently based on the object that calls them.
+
+Two main types:
+
+Compile-time polymorphism (Method Overloading)
+
+Same method name, different parameter lists.
+
+Runtime polymorphism (Method Overriding)
+
+Base class method is overridden in a derived class using virtual and override.
+
+Example:
+
+csharp
+public class Animal
+{
+    public virtual void Speak()
+    {
+        Console.WriteLine("Animal sound");
+    }
+}
+
+public class Dog : Animal
+{
+    public override void Speak()
+    {
+        Console.WriteLine("Bark");
+    }
+}
+Here, calling Speak() on Dog gives a different behavior than Animal.
+
+🔹 25 Interview-Style Q&A on Classes & Polymorphism in C#
+#	Question	Answer
+1	What is a class in C#?	A class is a blueprint for creating objects, defining properties, methods, and behavior.
+2	How do you create an object from a class?	Using the new keyword: Car myCar = new Car();
+3	What is encapsulation?	Wrapping data and methods together while restricting direct access using access modifiers.
+4	What are access modifiers in C#?	public, private, protected, internal, protected internal.
+5	What is a constructor?	A special method used to initialize objects.
+6	Can a class have multiple constructors?	Yes, through constructor overloading.
+7	What is a destructor in C#?	A method called when an object is destroyed, defined with ~ClassName().
+8	What is inheritance?	Mechanism where one class derives from another, reusing code.
+9	What keyword is used for inheritance?	: (colon). Example: class Dog : Animal { }
+10	What is polymorphism?	Ability of methods to take multiple forms depending on context.
+11	Difference between overloading and overriding?	Overloading = same method name, different parameters. Overriding = redefining base class method in derived class.
+12	Which keywords enable overriding?	virtual in base class, override in derived class.
+13	Can static methods be overridden?	No, static methods belong to the class, not the instance.
+14	What is the sealed keyword?	Prevents a class from being inherited or a method from being overridden.
+15	What is an abstract class?	A class that cannot be instantiated and may contain abstract methods.
+16	What is an interface?	A contract that defines methods/properties without implementation.
+17	Difference between abstract class and interface?	Abstract class can have implementation; interface cannot.
+18	What is the new keyword in method hiding?	It hides a base class method without overriding it.
+19	What is runtime polymorphism?	Achieved using method overriding with virtual and override.
+20	What is compile-time polymorphism?	Achieved using method overloading.
+21	Can constructors be overridden?	No, constructors cannot be overridden.
+22	What is the difference between class and object?	Class = blueprint; Object = instance of a class.
+23	What is the base keyword used for?	To call base class constructors or methods.
+24	What is the this keyword?	Refers to the current instance of the class.
+25	Why is polymorphism important?	It increases flexibility, reusability, and maintainability of code.
