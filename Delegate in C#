@@ -1,0 +1,56 @@
+Delegates in C#
+A delegate is like a pointer to a method. It defines a type that can reference methods with a specific signature.
+
+They allow methods to be passed as parameters, enabling flexible callbacks and event handling.
+
+Delegates support encapsulation of method calls, making code more reusable and dynamic.
+
+Common uses:
+
+Event handling (event keyword uses delegates under the hood).
+
+Passing functions as arguments.
+
+LINQ and anonymous methods.
+
+Syntax:
+
+csharp
+public delegate void MyDelegate(string msg);
+MyDelegate del = new MyDelegate(PrintMessage);
+del("Hello World");
+Variants:
+
+Single-cast delegate → points to one method.
+
+Multicast delegate → points to multiple methods.
+
+Built-in delegates → Func<>, Action<>, Predicate<>.
+
+🔹 25 One‑Liner Q&A on Delegates
+#	Question	Answer
+1	What is a delegate?	A type-safe function pointer in C#.
+2	Why use delegates?	To pass methods as parameters and enable callbacks.
+3	Syntax to declare a delegate?	public delegate void MyDelegate(string msg);
+4	How to instantiate a delegate?	MyDelegate d = new MyDelegate(MethodName);
+5	How to invoke a delegate?	d("Hello");
+6	What is a multicast delegate?	A delegate referencing multiple methods.
+7	How to add methods to a delegate?	d += AnotherMethod;
+8	How to remove methods from a delegate?	d -= MethodName;
+9	What keyword is built on delegates?	event.
+10	Difference between delegate and interface?	Delegate passes methods, interface defines contracts.
+11	What is Action<>?	A delegate that returns void.
+12	What is Func<>?	A delegate that returns a value.
+13	What is Predicate<>?	A delegate that returns bool.
+14	Can delegates be generic?	Yes, via Func<>, Action<>, Predicate<>.
+15	Are delegates reference types?	Yes.
+16	Can delegates point to static methods?	Yes.
+17	Can delegates point to instance methods?	Yes.
+18	What is an anonymous method?	A method without a name, assigned directly to a delegate.
+19	Example of anonymous method?	MyDelegate d = delegate(string msg) { Console.WriteLine(msg); };
+20	What is a lambda expression?	A shorthand for anonymous methods.
+21	Example of lambda with delegate?	Action square = x => Console.WriteLine(x*x);
+22	Can delegates be chained?	Yes, using +=.
+23	What happens if delegate chain has return values?	Only the last method’s return value is used.
+24	Are delegates type-safe?	Yes, they enforce method signature matching.
+25	Difference between delegate and event?	Delegate is the mechanism, event adds restrictions for safe publishing/subscribing.
