@@ -1,0 +1,99 @@
+📘 Long Summary: Object-Oriented Programming (OOP) in C#
+Object-Oriented Programming (OOP) in C# is a paradigm that organizes code around objects rather than functions. Objects represent real-world entities, encapsulating both data (fields/properties) and behavior (methods). C# implements OOP through four main pillars:
+
+Encapsulation – Bundling data and methods together, restricting direct access using access modifiers (private, public, protected). This ensures controlled interaction with objects.
+
+Abstraction – Hiding implementation details and exposing only essential features. Achieved using abstract classes and interfaces.
+
+Inheritance – Allowing one class to derive from another, reusing code and enabling polymorphism. For example, a Car class can inherit from a Vehicle class.
+
+Polymorphism – The ability of methods to behave differently based on context. Achieved via method overriding (virtual/override) and overloading.
+
+Other key concepts include:
+
+Classes and Objects: Blueprints and instances.
+
+Constructors/Destructors: Special methods for object lifecycle.
+
+Static vs Non-Static Members: Shared vs instance-specific data.
+
+Interfaces: Contracts that enforce implementation.
+
+Properties: Encapsulated access to fields.
+
+Generics: Type-safe reusable components.
+
+OOP in C# promotes modularity, reusability, scalability, and maintainability, making it ideal for enterprise applications, web development, and game engines like Unity. By mastering OOP, developers can design systems that are easier to extend, debug, and secure.
+
+🎯 25 OOP in C# Questions & Answers
+1. What is OOP in C#?
+OOP in C# is a programming paradigm that organizes code around objects. Each object combines data and behavior, making systems modular and reusable. It emphasizes encapsulation, abstraction, inheritance, and polymorphism. This approach mirrors real-world entities, allowing developers to design scalable applications. By using OOP, C# developers can reduce redundancy, improve maintainability, and create flexible architectures suitable for enterprise-level projects.
+
+2. What are the four pillars of OOP?
+The four pillars are Encapsulation, Abstraction, Inheritance, and Polymorphism. Encapsulation secures data, abstraction hides complexity, inheritance promotes code reuse, and polymorphism enables flexibility in method behavior. Together, they form the foundation of object-oriented design in C#. These principles ensure that applications are modular, extensible, and easier to maintain, making them essential for professional software development.
+
+3. Explain encapsulation with an example.
+Encapsulation means restricting direct access to class fields and exposing them through controlled methods or properties. For example, a BankAccount class may have a private balance field with public methods Deposit() and Withdraw(). This ensures that balance changes follow business rules, preventing unauthorized modifications. Encapsulation improves security, reduces errors, and makes code easier to maintain by controlling how data is accessed and modified.
+
+4. What is abstraction in C#?
+Abstraction hides implementation details and exposes only essential functionality. In C#, abstraction is achieved using abstract classes and interfaces. For example, an IShape interface may define a Draw() method without specifying how it works. Different shapes like Circle or Rectangle implement their own versions. This allows developers to focus on high-level design while leaving specific implementations to subclasses, improving flexibility and scalability.
+
+5. Define inheritance with an example.
+Inheritance allows one class to derive from another, reusing code and enabling polymorphism. For example, a Car class can inherit from a Vehicle class. The Vehicle class may define properties like Speed and methods like Start(). The Car class inherits these features but can add specific ones like AirConditioning. This reduces redundancy, promotes code reuse, and creates hierarchical relationships between classes.
+
+6. What is polymorphism in C#?
+Polymorphism means “many forms.” In C#, it allows methods to behave differently depending on context. It is achieved through method overloading and overriding. For example, a Draw() method in a base Shape class can be overridden in Circle and Rectangle classes to provide specific implementations. This enables flexible and dynamic behavior, making applications more adaptable to changing requirements.
+
+7. Difference between RANK, DENSE_RANK, and ROW_NUMBER in SQL?
+Oops, this is SQL-related but relevant for interviews.
+
+ROW_NUMBER() assigns unique numbers to rows, even with duplicates.
+
+RANK() assigns ranks but skips numbers if duplicates exist.
+
+DENSE_RANK() assigns ranks without gaps.
+For salaries, DENSE_RANK() is best to find the Nth highest distinct salary. This distinction shows understanding of ranking functions and their practical use in queries.
+
+8. What are classes and objects in C#?
+A class is a blueprint defining properties and methods, while an object is an instance of that class. For example, Car is a class with attributes like Color and methods like Drive(). Creating Car myCar = new Car(); instantiates an object. Classes define structure, while objects bring them to life. This distinction is fundamental to OOP and helps organize code effectively.
+
+9. What is a constructor in C#?
+A constructor is a special method used to initialize objects. It has the same name as the class and no return type. For example, public Car(string color) sets the car’s color when created. Constructors can be overloaded to provide multiple initialization options. They ensure objects start in a valid state, making them essential for reliable and predictable behavior in applications.
+
+10. What is a destructor in C#?
+A destructor is a special method used to clean up resources before an object is destroyed. In C#, it is defined with a tilde (~) before the class name, like ~Car(). Destructors are rarely used because C# has automatic garbage collection. However, they can be helpful for releasing unmanaged resources. They ensure proper cleanup, preventing memory leaks and resource mismanagement.
+
+11. Explain static vs non-static members.
+Static members belong to the class itself, not individual objects. They are shared across all instances. Non-static members belong to specific objects. For example, a static CarCount tracks total cars created, while non-static Color belongs to each car. Static members are accessed via the class name, while non-static members require an object. This distinction helps manage shared vs instance-specific data.
+
+12. What are access modifiers in C#?
+Access modifiers control visibility of class members. Common ones are public, private, protected, and internal. Public allows access everywhere, private restricts to the class, protected allows access in derived classes, and internal limits access within the same assembly. Using access modifiers ensures encapsulation, protecting data from unauthorized access and maintaining clear boundaries between components.
+
+13. What is method overloading?
+Method overloading allows multiple methods with the same name but different parameter lists. For example, Add(int a, int b) and Add(double a, double b) perform addition but accept different types. Overloading improves readability and flexibility, enabling developers to use the same method name for related operations. It is resolved at compile time, making it a form of compile-time polymorphism.
+
+14. What is method overriding?
+Method overriding allows a derived class to provide a new implementation for a method defined in a base class. The base method must be marked virtual, and the derived method uses override. For example, Draw() in Shape can be overridden in Circle. Overriding enables runtime polymorphism, allowing objects to behave differently based on their actual type.
+
+15. Difference between abstract class and interface.
+An abstract class can have both abstract and non-abstract members, while an interface only defines contracts. Abstract classes support constructors and fields, interfaces do not. A class can inherit only one abstract class but implement multiple interfaces. Abstract classes are best for shared base functionality, while interfaces are ideal for enforcing contracts across unrelated classes.
+
+16. What is a property in C#?
+A property is a member that provides controlled access to a field. It uses get and set accessors. For example:
+
+csharp
+public int Age { get; set; }
+Properties encapsulate data, allowing validation or logic during assignment. They replace direct field access, improving security and maintainability. Auto-properties simplify syntax, while custom properties allow more complex behavior.
+
+17. What is an indexer in C#?
+An indexer allows objects to be accessed like arrays. It uses the this keyword with parameters. For example:
+
+csharp
+public string this[int index] { get; set; }
+Indexers provide intuitive access to collections within classes. They improve usability by enabling natural syntax, making objects behave like arrays or dictionaries. This feature enhances flexibility and readability in custom data structures.
+
+18. What is a sealed class?
+A sealed class cannot be inherited. It is declared using the sealed keyword. For example:
+
+csharp
+public sealed class Car { }
