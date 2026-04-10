@@ -1,0 +1,212 @@
+1. What is the difference between var and dynamic in C#?
+Answer:  
+var is a compile-time keyword used for implicit typing. The compiler infers the type at compile time, and once inferred, it cannot change. For example:
+
+csharp
+var number = 10; // inferred as int
+number = "hello"; // ❌ compile-time error
+dynamic, on the other hand, defers type checking until runtime. This means you can assign different types at runtime, but you lose compile-time safety:
+
+csharp
+dynamic value = 10;
+value = "hello"; // ✅ allowed, but runtime errors possible
+In interviews, emphasize that var is safer and preferred, while dynamic is powerful but risky.
+
+2. Can you explain the is keyword in C#?
+Answer:  
+The is keyword checks if an object is of a given type. It returns true or false.
+
+csharp
+object obj = "Hello";
+if (obj is string)
+    Console.WriteLine("It's a string!");
+Since C# 7, is also supports pattern matching:
+
+csharp
+if (obj is string s)
+    Console.WriteLine($"String length: {s.Length}");
+This avoids extra casting and makes code cleaner.
+
+3. What does the in keyword mean in different contexts?
+Answer:  
+in has multiple uses:
+
+Foreach loop: Iterates over elements.
+
+csharp
+foreach (var item in list) { }
+Method parameters: Passes arguments by reference but read-only.
+
+csharp
+void Print(in int number) { Console.WriteLine(number); }
+Generics: Restricts type parameters for covariance.
+
+csharp
+interface IComparer<in T> { int Compare(T x, T y); }
+4. Explain the out keyword in C#.
+Answer:  
+out is used to return multiple values from a method. The variable passed must be assigned inside the method.
+
+csharp
+bool TryParse(string input, out int result)
+{
+    result = 0;
+    return int.TryParse(input, out result);
+}
+It’s commonly used in TryParse methods. Since C# 7, you can declare out variables inline:
+
+csharp
+if (int.TryParse("123", out int number)) { }
+5. What is the role of get in properties?
+Answer:  
+get defines a property accessor that retrieves the value of a private field.
+
+csharp
+public class Product
+{
+    private string name;
+    public string Name { get { return name; } }
+}
+Modern C# allows auto-properties:
+
+csharp
+public string Name { get; set; }
+get ensures encapsulation and controlled access.
+
+6. How does set differ from get in properties?
+Answer:  
+set assigns values to a property. It can include validation logic:
+
+csharp
+private int price;
+public int Price
+{
+    get { return price; }
+    set
+    {
+        if (value < 0) throw new ArgumentException("Price cannot be negative");
+        price = value;
+    }
+}
+Together, get and set provide controlled access to fields.
+
+7. What is the difference between ref and out parameters?
+Answer:
+
+ref: Variable must be initialized before being passed.
+
+out: Variable must be assigned inside the method.
+
+csharp
+void RefExample(ref int x) { x += 10; }
+void OutExample(out int y) { y = 20; }
+8. How does var improve readability in LINQ queries?
+Answer:  
+LINQ often returns anonymous types. Using var avoids verbose type declarations:
+
+csharp
+var result = from p in products
+             select new { p.Name, p.Price };
+Without var, you’d need to define a custom class or use complex type names.
+
+9. What is covariance and how does in relate to it?
+Answer:  
+Covariance allows assigning a more derived type to a less derived type. in is used in generic interfaces to enable covariance for input parameters. Example:
+
+csharp
+IComparer<object> comparer = new StringComparer(); // thanks to 'in'
+10. What is contravariance and how does out relate to it?
+Answer:  
+Contravariance allows assigning a less derived type to a more derived type. out is used in generics to enable contravariance for return types. Example:
+
+csharp
+IEnumerable<string> strings = new List<string>();
+IEnumerable<object> objects = strings; // thanks to 'out'
+11. Explain the difference between dynamic and object.
+Answer:
+
+object: Requires explicit casting.
+
+dynamic: Automatically resolves at runtime.
+
+csharp
+object obj = "Hello";
+string s = (string)obj; // explicit cast
+dynamic dyn = "Hello";
+string d = dyn; // implicit, runtime check
+12. How does is differ from as in C#?
+Answer:
+
+is: Checks type compatibility.
+
+as: Attempts safe casting, returns null if incompatible.
+
+csharp
+if (obj is string s) { }
+string str = obj as string;
+13. What is the difference between readonly and const?
+Answer:
+
+const: Compile-time constant, must be assigned at declaration.
+
+readonly: Runtime constant, can be assigned in constructor.
+
+csharp
+const double Pi = 3.14;
+readonly int id;
+public Product(int id) { this.id = id; }
+14. How does get support encapsulation?
+Answer:  
+By exposing only controlled access to private fields, get prevents direct modification. Example:
+
+csharp
+public int Age { get; private set; }
+15. What is the difference between var and explicit typing?
+Answer:  
+var reduces verbosity but explicit typing improves clarity in complex codebases. Best practice: use var when type is obvious.
+
+16. Can you explain yield return and how it relates to in loops?
+Answer:  
+yield return produces values one at a time, often consumed with in loops (foreach).
+
+csharp
+IEnumerable<int> GetNumbers()
+{
+    yield return 1;
+    yield return 2;
+}
+17. How does out help in parsing methods?
+Answer:  
+TryParse methods use out to return parsed values safely without exceptions.
+
+csharp
+if (int.TryParse("123", out int number)) { }
+18. What is the difference between dynamic and reflection?
+Answer:
+
+dynamic: Runtime binding, simpler syntax.
+
+Reflection: Explicitly inspects metadata.
+
+csharp
+dynamic obj = new Product();
+obj.Print(); // runtime binding
+19. How does is improve pattern matching?
+Answer:  
+Pattern matching with is reduces boilerplate casting:
+
+csharp
+if (obj is Product p && p.Price > 100) { }
+20. What is the difference between get and a method like GetName()?
+Answer:  
+Properties (get) are syntactic sugar for methods but integrate better with data-binding and serialization. Methods are explicit actions.
+
+21. How does var interact with anonymous types?
+Answer:  
+Anonymous types can only be accessed via var:
+
+csharp
+var person = new { Name = "John", Age = 30 };
+22. What is the difference between in parameters and normal parameters?
+Answer:  
+in parameters prevent modification inside the method, ensuring immutability. Useful for large structs.
