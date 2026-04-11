@@ -1,0 +1,104 @@
+📘 Brief Notes on ASP.NET MVC
+MVC Pattern: Stands for Model–View–Controller.
+
+Model → Handles data, business logic, and rules.
+
+View → UI layer, displays data to the user.
+
+Controller → Manages requests, interacts with Model, and selects View.
+
+Advantages:
+
+Separation of concerns → Easier to maintain and test.
+
+Supports test‑driven development.
+
+Clean URL routing.
+
+ASP.NET MVC Features:
+
+Built on ASP.NET framework.
+
+Uses Routing for clean URLs.
+
+Supports Filters (e.g., authentication, logging).
+
+Strongly typed views with Razor syntax.
+
+Integration with Entity Framework for data access.
+
+🎯 20 Interview Q&A (ASP.NET MVC + C# this keyword)
+ASP.NET MVC
+Q: What is ASP.NET MVC?
+A: A framework for building web applications using the Model–View–Controller design pattern.
+
+Q: Difference between MVC and WebForms?
+A: MVC is lightweight, testable, and uses separation of concerns. WebForms rely on ViewState and server controls, making them heavier.
+
+Q: What is Routing in MVC?
+A: Mechanism to map URLs to controller actions without using physical file paths.
+
+Q: What are Action Methods?
+A: Public methods in a controller that handle incoming requests and return responses.
+
+Q: What is Razor?
+A: A view engine in MVC that allows embedding C# code into HTML using @ syntax.
+
+Q: What are Filters in MVC?
+A: Attributes applied to controllers/actions for cross‑cutting concerns like authentication, logging, or error handling.
+
+Q: What is TempData?
+A: Stores data temporarily between requests, cleared once read.
+
+Q: Difference between ViewData, ViewBag, and TempData?
+A:
+
+ViewData: Dictionary, requires type casting.
+
+ViewBag: Dynamic wrapper around ViewData.
+
+TempData: Persists across redirects.
+
+Q: What is Partial View?
+A: A reusable view component that can be embedded inside other views.
+
+Q: How does MVC support unit testing?
+A: Controllers are plain classes with methods, making them easy to test without UI dependencies.
+
+C# this Keyword
+Q: What is the this keyword in C#?
+A: Refers to the current instance of the class.
+
+Q: Can this be used in a static method?
+A: No, because static methods belong to the class, not an instance.
+
+Q: How is this used in constructors?
+A: To call another constructor in the same class (this(...)).
+
+Q: Can this be passed as a parameter?
+A: Yes, to pass the current object to another method.
+
+Q: Example of using this to resolve naming conflict?
+A:
+
+csharp
+class Student {
+    string name;
+    public Student(string name) {
+        this.name = name; // distinguishes field from parameter
+    }
+}
+Q: Can this be used in indexers?
+A: Yes, to define custom accessors for objects.
+
+Q: What happens if you use this in a struct?
+A: It refers to the current struct instance.
+
+Q: Can this be used in extension methods?
+A: Yes, the first parameter of an extension method uses this to bind to the type being extended.
+
+Q: Is this mandatory in constructors?
+A: No, but it’s useful to avoid ambiguity between fields and parameters.
+
+Q: Can this be used in operator overloading?
+A: Yes, it refers to the left‑hand operand in operator methods.
