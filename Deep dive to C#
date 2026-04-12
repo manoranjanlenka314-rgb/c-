@@ -1,0 +1,68 @@
+C# is a modern, object-oriented, type-safe programming language developed by Microsoft, widely used for web, desktop, and game development. It combines the power of C++ with the simplicity of Java, offering features like OOP, LINQ, async/await, and integration with the .NET ecosystem, making it versatile and scalable.
+
+🔎 Deep Dive Summary of C#
+1. Origins & Purpose
+Developed by Microsoft in 2000 as part of the .NET framework.
+
+Designed for simplicity, robustness, and scalability.
+
+Latest version: C# 12.0.
+
+2. Core Features
+Object-Oriented Programming (OOP): Encapsulation, Inheritance, Polymorphism, Abstraction.
+
+Type Safety: Prevents unsafe casts and memory corruption.
+
+Automatic Memory Management: Garbage collection.
+
+Cross-Platform: Runs on Windows, Linux, macOS via .NET Core/.NET 6+.
+
+Rich Libraries: Extensive standard library for networking, UI, data, etc.
+
+3. Advanced Capabilities
+LINQ (Language Integrated Query): Query collections with SQL-like syntax.
+
+Async/Await: Simplifies asynchronous programming.
+
+Delegates & Events: Enables callbacks and event-driven programming.
+
+Generics: Strongly typed collections and reusable code.
+
+Multithreading: Parallel execution for performance.
+
+4. Common Use Cases
+Web Development: ASP.NET Core.
+
+Desktop Apps: Windows Forms, WPF.
+
+Game Development: Unity engine.
+
+APIs & Microservices: RESTful services with .NET.
+
+📘 25 Quick C# Interview Q&A
+#	Question	Answer
+1	What is C#?	A modern, object-oriented language by Microsoft for .NET.
+2	Difference between C# and Java?	C# integrates tightly with .NET, Java with JVM.
+3	What are the four pillars of OOP?	Encapsulation, Inheritance, Polymorphism, Abstraction.
+4	What is a namespace?	A container for classes to organize code.
+5	What is a class?	A blueprint for creating objects.
+6	What is an object?	An instance of a class.
+7	What is encapsulation?	Restricting direct access to data using access modifiers.
+8	What is inheritance?	Deriving new classes from existing ones.
+9	What is polymorphism?	Ability of methods to behave differently based on context.
+10	What is abstraction?	Hiding implementation details, exposing only essentials.
+11	What is a constructor?	A special method to initialize objects.
+12	What is a destructor?	Cleans up resources before object is destroyed.
+13	What are access modifiers?	Keywords like public, private, protected, internal.
+14	What is static keyword?	Defines members that belong to the class, not instances.
+15	What is a delegate?	A type-safe function pointer.
+16	What is an event?	A mechanism for communication between objects.
+17	What is LINQ?	Language Integrated Query for collections.
+18	What is async/await?	Keywords for asynchronous programming.
+19	What is exception handling?	Using try-catch-finally to handle runtime errors.
+20	What is garbage collection?	Automatic memory management in .NET.
+21	What is boxing/unboxing?	Converting value types to object (boxing) and back (unboxing).
+22	What is a struct?	A value type similar to a class but lightweight.
+23	What is an interface?	A contract that classes must implement.
+24	What is dependency injection?	A design pattern for managing object dependencies.
+25	What is difference between abstract class and interface?	Abstract class can have implementation; interface cannot.
