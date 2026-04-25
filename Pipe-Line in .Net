@@ -1,0 +1,65 @@
+The .NET pipeline refers to the structured flow of request and response handling in ASP.NET Core, managed through middleware components. It ensures that every HTTP request passes through a sequence of steps—such as authentication, routing, logging, and error handling—before reaching the endpoint, and the response flows back through the same pipeline. Understanding this pipeline is crucial for building secure, scalable, and high-performance web applications.
+
+📘 Detailed Summary of the .NET Pipeline
+What is the ASP.NET Core Pipeline?
+The ASP.NET Core Request Processing Pipeline is a sequence of middleware components.
+
+Each middleware can:
+
+Inspect or modify the request.
+
+Pass the request to the next middleware.
+
+Short-circuit the pipeline by generating a response directly.
+
+Key Middleware Components
+Exception Handling: Captures and logs unhandled exceptions globally.
+
+HSTS & HTTPS Redirection: Enforces secure communication.
+
+Static Files: Serves CSS, JS, images directly without further processing.
+
+Routing: Maps requests to controllers, Razor Pages, or APIs.
+
+Authentication & Authorization: Validates user identity and permissions.
+
+CORS: Manages cross-origin requests.
+
+Custom Middleware: Developers can inject custom logic (e.g., logging, caching).
+
+Flow of a Request
+Incoming Request → enters pipeline.
+
+Middleware Execution → sequential processing.
+
+Endpoint Execution → controller or API handles request.
+
+Response Processing → flows back through middleware in reverse order.
+
+❓ 25 Important Questions and Answers on .NET Pipeline
+#	Question	Answer
+1	What is middleware in ASP.NET Core?	Middleware is code that processes HTTP requests and responses.
+2	What is the pipeline?	A sequence of middleware components executed in order.
+3	Why is middleware order important?	Because each middleware depends on the previous one; wrong order breaks functionality.
+4	How does a request travel through the pipeline?	Request → Middleware chain → Endpoint → Response back through middleware.
+5	What is UseRouting()?	Middleware that matches incoming requests to endpoints.
+6	What is UseAuthentication()?	Middleware that validates user identity.
+7	What is UseAuthorization()?	Middleware that checks user permissions.
+8	What is UseStaticFiles()?	Serves static content like CSS, JS, images.
+9	What is UseExceptionHandler()?	Handles errors globally and returns custom error responses.
+10	What is HSTS middleware?	Enforces HTTPS-only communication.
+11	What is HTTPS Redirection middleware?	Redirects HTTP requests to HTTPS.
+12	What is CORS middleware?	Manages cross-origin requests.
+13	How do you add middleware?	By calling app.UseMiddleware() in Program.cs.
+14	Can middleware short-circuit the pipeline?	Yes, by not calling next().
+15	What is the difference between middleware and filters?	Middleware works globally; filters apply at controller/action level.
+16	What is endpoint middleware?	The final handler (controller, Razor Page, API).
+17	What is the role of Program.cs?	Configures the pipeline with middleware components.
+18	What is the difference between Use and Map?	Use adds middleware; Map branches the pipeline.
+19	What is terminal middleware?	Middleware that ends the pipeline without calling next().
+20	Can middleware be asynchronous?	Yes, most middleware is async for performance.
+21	What is the difference between Run and Use?	Run adds terminal middleware; Use continues the chain.
+22	What is custom middleware?	Developer-defined logic injected into the pipeline.
+23	How does response travel back?	Through middleware in reverse order.
+24	What is the difference between pipeline and System.IO.Pipelines?	Request pipeline handles HTTP flow; System.IO.Pipelines handles high-performance I/O streams.
+25	Why is pipeline important?	It ensures modular, secure, and maintainable request handling.
