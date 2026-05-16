@@ -1,0 +1,163 @@
+ASP.NET Core MVC is a cross-platform, open-source framework for building modern, cloud-ready, and testable web applications. It combines the Model-View-Controller (MVC) design pattern with the flexibility of ASP.NET Core’s modular architecture.
+
+🔑 Key Features
+Cross-platform: Runs on Windows, Linux, macOS.
+
+Unified framework: Merges MVC, Web API, and Razor Pages under ASP.NET Core.
+
+Middleware pipeline: Request handling is modular via middleware components.
+
+Dependency Injection (DI): Built-in DI container for loose coupling.
+
+Routing: Attribute routing and conventional routing supported.
+
+Tag Helpers: Server-side helpers that make Razor views more HTML-friendly.
+
+Configuration system: Strongly typed, environment-based configuration.
+
+Security: Identity, authentication, authorization, anti-forgery tokens.
+
+Performance: Lightweight, faster than traditional ASP.NET due to Kestrel server and modular design.
+
+Testing: Supports unit testing and integration testing with ease.
+
+⚙️ MVC Pattern
+Model: Represents application data and business logic.
+
+View: UI layer, typically Razor views.
+
+Controller: Handles requests, interacts with models, and returns views or data.
+
+🚀 Request Lifecycle
+Request enters via Kestrel web server.
+
+Passes through middleware pipeline (authentication, routing, etc.).
+
+Routed to a controller action.
+
+Action interacts with model/services.
+
+Returns a view or JSON response.
+
+Response flows back through middleware to the client.
+
+🛠️ Common Use Cases
+Building RESTful APIs.
+
+Creating dynamic web applications with Razor views.
+
+Integrating with client-side frameworks (Angular, React).
+
+Enterprise apps requiring modularity, scalability, and testability.
+
+🎯 25 ASP.NET Core MVC Interview Q&A
+1. What is ASP.NET Core MVC?
+ASP.NET Core MVC is a framework for building web apps using the MVC pattern. Unlike classic ASP.NET MVC, it’s cross-platform, modular, and integrates Web API and Razor Pages. It emphasizes performance and testability.
+
+2. Difference between ASP.NET MVC and ASP.NET Core MVC?
+ASP.NET MVC: Windows-only, tightly coupled with System.Web, heavier.
+
+ASP.NET Core MVC: Cross-platform, lightweight, modular, uses middleware, integrates Web API.
+
+3. Explain the MVC pattern.
+Model: Business logic/data.
+
+View: UI presentation.
+
+Controller: Request handler, orchestrates between model and view.
+
+4. What is Middleware in ASP.NET Core?
+Middleware are components in the request pipeline that process requests/responses. Examples: Authentication, Routing, Static Files. They replace HttpModules/HttpHandlers from classic ASP.NET.
+
+5. How does Routing work in ASP.NET Core MVC?
+Routing maps incoming requests to controller actions. Two types:
+
+Conventional routing: Defined in Program.cs or Startup.cs.
+
+Attribute routing: Decorates controllers/actions with [Route].
+
+6. What are Tag Helpers?
+Tag Helpers are server-side components that let you write Razor views with HTML-like syntax. Example: <form asp-action="Login">.
+
+7. Explain Dependency Injection in ASP.NET Core.
+ASP.NET Core has built-in DI. Services are registered in Program.cs (builder.Services.AddScoped<>()) and injected into controllers via constructors.
+
+8. What is Kestrel?
+Kestrel is the default cross-platform web server for ASP.NET Core. It’s lightweight, fast, and can run standalone or behind IIS/NGINX.
+
+9. What is the difference between ViewData, ViewBag, and TempData?
+ViewData: Dictionary, weakly typed.
+
+ViewBag: Dynamic wrapper around ViewData.
+
+TempData: Stores data for one request, survives redirects.
+
+10. What are Filters in ASP.NET Core MVC?
+Filters allow code execution before/after controller actions. Types: Authorization, Resource, Action, Exception, Result filters.
+
+11. Explain Model Binding.
+Model binding maps HTTP request data (query string, form data, route values) to action method parameters automatically.
+
+12. What is Razor?
+Razor is a view engine that allows embedding C# code in HTML using @ syntax. Example: @Model.Name.
+
+13. What is the difference between Razor Pages and MVC?
+Razor Pages: Page-focused, simpler for small apps.
+
+MVC: Controller-focused, better for large apps with complex routing.
+
+14. How is Configuration handled in ASP.NET Core?
+Configuration is environment-based, supports JSON, XML, environment variables, and strongly typed options via IOptions<T>.
+
+15. Explain Authentication vs Authorization.
+Authentication: Verifying identity (login).
+
+Authorization: Granting access to resources based on roles/policies.
+
+16. What is ASP.NET Core Identity?
+Identity is a membership system for authentication/authorization. Provides user management, roles, claims, and token support.
+
+17. Explain ActionResult vs IActionResult.
+ActionResult: Base class for returning views, JSON, etc.
+
+IActionResult: Interface, more flexible, allows custom implementations.
+
+18. What is the difference between Partial View and Layout View?
+Layout View: Defines common structure (header, footer).
+
+Partial View: Reusable view snippet (like a widget).
+
+19. What is Anti-forgery Token?
+Security feature to prevent CSRF attacks. Implemented via @Html.AntiForgeryToken() and validated by middleware.
+
+20. Explain REST API in ASP.NET Core MVC.
+ASP.NET Core MVC supports building REST APIs using controllers with [ApiController] and returning JSON responses.
+
+21. What is the Startup.cs / Program.cs role?
+Defines the app’s request pipeline and service configuration. In .NET 6+, Program.cs uses minimal hosting model.
+
+22. What is the difference between AddScoped, AddTransient, AddSingleton?
+Scoped: One instance per request.
+
+Transient: New instance every time.
+
+Singleton: One instance for the entire app lifetime.
+
+23. Explain Exception Handling in ASP.NET Core.
+Handled via middleware (UseExceptionHandler, UseDeveloperExceptionPage) or filters. Can log and return custom error responses.
+
+24. What is the difference between IActionFilter and IResultFilter?
+IActionFilter: Runs before/after action methods.
+
+IResultFilter: Runs before/after action results (views, JSON).
+
+25. How do you secure an ASP.NET Core MVC application?
+Use HTTPS.
+
+Implement Identity/Authentication.
+
+Apply Authorization policies.
+
+Use Anti-forgery tokens.
+
+Validate input to prevent SQL injection/XSS.
