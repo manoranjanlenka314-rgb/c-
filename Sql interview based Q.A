@@ -1,0 +1,143 @@
+SQL (Structured Query Language) is the standard language used to interact with relational databases. It allows developers and database administrators to create, read, update, and delete (CRUD) data stored in tables. SQL is declarative, meaning you specify what you want, not how to do it — the database engine figures out the execution plan.
+
+🔑 Key Concepts
+Relational Databases: Data is stored in tables (rows and columns). Each table represents an entity, and relationships are defined using keys.
+
+Data Definition Language (DDL): Commands like CREATE, ALTER, DROP define database schema.
+
+Data Manipulation Language (DML): Commands like INSERT, UPDATE, DELETE, SELECT manipulate data.
+
+Data Control Language (DCL): Commands like GRANT, REVOKE manage permissions.
+
+Transaction Control Language (TCL): Commands like COMMIT, ROLLBACK, SAVEPOINT handle transactions.
+
+⚙️ Core Features
+Primary Key: Uniquely identifies each row.
+
+Foreign Key: Establishes relationships between tables.
+
+Indexes: Improve query performance.
+
+Joins: Combine data from multiple tables (INNER, LEFT, RIGHT, FULL).
+
+Normalization: Organizing data to reduce redundancy.
+
+Aggregate Functions: COUNT, SUM, AVG, MIN, MAX.
+
+Subqueries: Nested queries inside another query.
+
+Views: Virtual tables created from queries.
+
+Stored Procedures & Functions: Encapsulate SQL logic for reuse.
+
+Triggers: Automatically execute SQL code in response to events.
+
+🚀 Why SQL Matters
+It’s the backbone of most enterprise applications.
+
+Used in reporting, analytics, and backend systems.
+
+Essential for developers, testers, analysts, and DBAs.
+
+Knowledge of SQL is often tested in interviews for software engineering roles.
+
+🎯 25 Interview-Based SQL Questions & Answers
+Basics
+Q: What is SQL?  
+A: SQL is a language used to manage and manipulate relational databases. It provides commands to define schema (DDL), manipulate data (DML), control access (DCL), and manage transactions (TCL).
+
+Q: Difference between SQL and MySQL?  
+A: SQL is a language, while MySQL is a relational database management system (RDBMS) that uses SQL to interact with data.
+
+Q: What are primary keys and foreign keys?  
+A: A primary key uniquely identifies a record in a table. A foreign key is a column that references a primary key in another table, establishing relationships.
+
+Q: What is normalization?  
+A: Normalization is the process of organizing data into tables to reduce redundancy and improve integrity. Common forms are 1NF, 2NF, 3NF, and BCNF.
+
+Q: What is denormalization?  
+A: Denormalization is the process of combining tables to improve query performance, often at the cost of redundancy.
+
+Queries & Joins
+Q: Explain different types of joins.  
+A:
+
+INNER JOIN: Returns matching rows from both tables.
+
+LEFT JOIN: Returns all rows from the left table and matching rows from the right.
+
+RIGHT JOIN: Opposite of LEFT JOIN.
+
+FULL JOIN: Returns all rows when there is a match in either table.
+
+Q: What is a self-join?  
+A: A self-join is when a table is joined with itself to compare rows within the same table.
+
+Q: What is a cross join?  
+A: A cross join returns the Cartesian product of two tables (all possible combinations).
+
+Q: Difference between WHERE and HAVING?  
+A: WHERE filters rows before grouping, while HAVING filters groups after aggregation.
+
+Q: What is a subquery?  
+A: A subquery is a query nested inside another query, often used in WHERE, FROM, or SELECT clauses.
+
+Performance & Indexing
+Q: What are indexes in SQL?  
+A: Indexes are data structures that improve query performance by allowing faster lookups. Types: clustered, non-clustered, unique, composite.
+
+Q: Difference between clustered and non-clustered index?  
+A: A clustered index defines the physical order of data in a table, while a non-clustered index is a separate structure pointing to the data.
+
+Q: What is query optimization?  
+A: Query optimization involves improving SQL queries for better performance using indexes, avoiding unnecessary subqueries, and analyzing execution plans.
+
+Q: What is an execution plan?  
+A: An execution plan shows how SQL Server executes a query, helping identify performance bottlenecks.
+
+Q: What is the difference between DELETE and TRUNCATE?  
+A: DELETE removes rows one by one and can be rolled back. TRUNCATE removes all rows quickly, resets identity, and cannot be rolled back easily.
+
+Transactions & Security
+Q: What is a transaction in SQL?  
+A: A transaction is a sequence of operations performed as a single logical unit of work. It ensures ACID properties (Atomicity, Consistency, Isolation, Durability).
+
+Q: Difference between COMMIT and ROLLBACK?  
+A: COMMIT saves changes permanently, while ROLLBACK undoes changes since the last commit.
+
+Q: What are ACID properties?  
+A:
+
+Atomicity: All or nothing.
+
+Consistency: Database remains valid.
+
+Isolation: Transactions don’t interfere.
+
+Durability: Changes persist after commit.
+
+Q: What is SQL injection?  
+A: SQL injection is a security vulnerability where malicious SQL code is inserted into queries. Prevented using parameterized queries and stored procedures.
+
+Q: Difference between GRANT and REVOKE?  
+A: GRANT gives permissions to users, while REVOKE removes them.
+
+Advanced Concepts
+Q: What are views in SQL?  
+A: Views are virtual tables created from queries. They simplify complex queries and provide security by restricting access to specific columns.
+
+Q: What are stored procedures?  
+A: Stored procedures are precompiled SQL code that can be executed repeatedly, improving performance and reusability.
+
+Q: What are triggers?  
+A: Triggers are special procedures that automatically execute in response to events like INSERT, UPDATE, or DELETE.
+
+Q: Difference between UNION and UNION ALL?  
+A: UNION removes duplicates, while UNION ALL includes duplicates.
+
+Q: What is the difference between OLTP and OLAP systems?  
+A:
+
+OLTP (Online Transaction Processing): Handles day-to-day transactions (banking, retail).
+
+OLAP (Online Analytical Processing): Handles complex queries for analytics and reporting.
