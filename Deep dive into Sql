@@ -1,0 +1,251 @@
+SQL Deep Dive Interview Q&A (25)
+1. What is SQL and why is it important?
+Answer:  
+SQL (Structured Query Language) is the standard language used to interact with relational databases. It allows developers and DBAs to query, insert, update, and delete data, as well as define and manage database structures. Its importance lies in:
+
+Data manipulation: Retrieve and modify data efficiently.
+
+Data definition: Create tables, views, indexes, constraints.
+
+Portability: Supported by almost all RDBMS (SQL Server, Oracle, MySQL, PostgreSQL).
+
+Declarative nature: You specify what you want, not how to get it.
+In interviews, emphasize that SQL is the backbone of data-driven applications, ensuring consistency, integrity, and scalability.
+
+2. Difference between SQL and NoSQL databases?
+Answer:
+
+SQL (Relational): Structured schema, tables with rows/columns, ACID compliance, strong consistency.
+
+NoSQL: Schema-less, flexible storage (documents, key-value, graphs), eventual consistency, horizontal scaling.
+Example: SQL Server vs MongoDB.
+Interview tip: Highlight that SQL is best for structured, transactional systems, while NoSQL shines in big data, real-time analytics, and unstructured content.
+
+3. Explain the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN.
+Answer:
+
+INNER JOIN: Returns only matching rows between two tables.
+
+LEFT JOIN: Returns all rows from left table + matching rows from right. Non-matching → NULLs.
+
+RIGHT JOIN: Opposite of LEFT JOIN.
+
+FULL OUTER JOIN: Returns all rows from both tables, matching where possible, NULLs otherwise.
+Example:
+
+sql
+SELECT e.Name, d.DepartmentName
+FROM Employees e
+LEFT JOIN Departments d ON e.DeptId = d.Id;
+This ensures all employees are shown, even if they don’t belong to a department.
+
+4. What are indexes? Types of indexes in SQL?
+Answer:  
+Indexes are database objects that improve query performance by allowing faster data retrieval.
+
+Clustered Index: Sorts and stores rows physically in order. One per table.
+
+Non-Clustered Index: Separate structure with pointers to data. Multiple allowed.
+
+Unique Index: Ensures uniqueness of values.
+
+Filtered Index: Index on subset of rows.
+
+Composite Index: Index on multiple columns.
+Trade-off: Faster reads but slower writes (INSERT/UPDATE/DELETE). Interviewers love when you mention this balance.
+
+5. What is normalization? Explain different normal forms.
+Answer:  
+Normalization is the process of organizing data to reduce redundancy and improve integrity.
+
+1NF: Atomic values, no repeating groups.
+
+2NF: 1NF + no partial dependency on primary key.
+
+3NF: 2NF + no transitive dependency.
+
+BCNF: Stronger form of 3NF.
+Example: Splitting customer addresses into separate tables avoids duplication.
+Interview tip: Stress that normalization prevents anomalies but sometimes denormalization is used for performance.
+
+6. What is denormalization and when is it used?
+Answer:  
+Denormalization is the process of combining tables or adding redundant data to improve query performance.
+Used when:
+
+Reporting systems need fewer joins.
+
+Read-heavy workloads.
+
+OLAP systems.
+Example: Storing total sales in a table instead of calculating every time.
+Trade-off: Faster reads, but risk of data inconsistency.
+
+7. Explain ACID properties in SQL.
+Answer:
+
+Atomicity: Transactions are all-or-nothing.
+
+Consistency: Database moves from one valid state to another.
+
+Isolation: Transactions don’t interfere with each other.
+
+Durability: Once committed, changes persist even after crashes.
+Interview tip: Give a banking example — transferring money must debit one account and credit another atomically.
+
+8. Difference between DELETE, TRUNCATE, and DROP.
+Answer:
+
+DELETE: Removes rows, can have WHERE clause, logged, slower.
+
+TRUNCATE: Removes all rows, faster, minimal logging, resets identity.
+
+DROP: Removes entire table structure.
+Example:
+
+sql
+DELETE FROM Employees WHERE DeptId=5;
+TRUNCATE TABLE Employees;
+DROP TABLE Employees;
+9. What are SQL constraints?
+Answer:  
+Constraints enforce rules on data:
+
+PRIMARY KEY: Unique + not null.
+
+FOREIGN KEY: Enforces referential integrity.
+
+UNIQUE: Prevents duplicate values.
+
+CHECK: Validates condition.
+
+DEFAULT: Assigns default value.
+Interview tip: Mention constraints ensure data quality and prevent anomalies.
+
+10. Explain stored procedures vs functions.
+Answer:
+
+Stored Procedure: Can perform multiple operations, return multiple values, allow transactions.
+
+Function: Returns a single value or table, cannot modify database state.
+Example:
+
+sql
+CREATE FUNCTION GetTotalSales(@CustId INT) RETURNS INT
+AS BEGIN
+  RETURN (SELECT SUM(Amount) FROM Orders WHERE CustId=@CustId);
+END;
+11. What are triggers in SQL?
+Answer:  
+Triggers are special procedures that automatically execute in response to events (INSERT, UPDATE, DELETE).
+Types:
+
+AFTER Trigger: Executes after action.
+
+INSTEAD OF Trigger: Replaces action.
+Use cases: Auditing, enforcing business rules.
+Caution: Overuse can hurt performance.
+
+12. Explain SQL transactions with example.
+Answer:  
+Transactions group multiple operations into one unit.
+Example:
+
+sql
+BEGIN TRANSACTION;
+UPDATE Accounts SET Balance=Balance-500 WHERE Id=1;
+UPDATE Accounts SET Balance=Balance+500 WHERE Id=2;
+IF @@ERROR <> 0 ROLLBACK;
+ELSE COMMIT;
+Ensures money transfer is atomic.
+
+13. What is a view? Difference between view and table?
+Answer:
+
+View: Virtual table based on query. Doesn’t store data physically.
+
+Table: Physical storage of data.
+Views simplify queries, provide security, and hide complexity.
+Example:
+
+sql
+CREATE VIEW ActiveCustomers AS
+SELECT Name, Email FROM Customers WHERE IsActive=1;
+14. Explain window functions in SQL.
+Answer:  
+Window functions perform calculations across a set of rows related to the current row.
+Examples: ROW_NUMBER(), RANK(), DENSE_RANK(), LEAD(), LAG().
+
+sql
+SELECT Name, Salary,
+RANK() OVER (ORDER BY Salary DESC) AS SalaryRank
+FROM Employees;
+Useful for analytics without collapsing rows.
+
+15. What is indexing strategy for performance tuning?
+Answer:
+
+Use clustered index on primary key.
+
+Non-clustered indexes on frequently searched columns.
+
+Avoid indexing small tables.
+
+Use covering indexes for queries.
+
+Monitor fragmentation.
+Interview tip: Always mention trade-off between read vs write performance.
+
+16. Explain difference between OLTP and OLAP systems.
+Answer:
+
+OLTP (Online Transaction Processing): Handles day-to-day transactions, normalized schema, fast inserts/updates.
+
+OLAP (Online Analytical Processing): Handles reporting/analytics, denormalized schema, complex queries.
+Example: Banking system (OLTP) vs Data warehouse (OLAP).
+
+17. What is a CTE (Common Table Expression)?
+Answer:  
+CTE is a temporary result set used within a query.
+Example:
+
+sql
+WITH SalesCTE AS (
+  SELECT CustId, SUM(Amount) AS TotalSales
+  FROM Orders GROUP BY CustId
+)
+SELECT * FROM SalesCTE WHERE TotalSales > 10000;
+Improves readability and recursive queries.
+
+18. Explain difference between correlated and non-correlated subqueries.
+Answer:
+
+Non-correlated: Independent, executes once.
+
+Correlated: Depends on outer query, executes per row.
+Example:
+
+sql
+SELECT Name FROM Employees e
+WHERE Salary > (SELECT AVG(Salary) FROM Employees);
+Non-correlated.
+
+sql
+SELECT Name FROM Employees e
+WHERE Salary > (SELECT AVG(Salary) FROM Employees WHERE DeptId=e.DeptId);
+Correlated.
+
+19. What is partitioning in SQL?
+Answer:  
+Partitioning splits large tables into smaller, manageable pieces.
+Types: Range, List, Hash, Composite.
+Benefits: Faster queries, easier maintenance.
+Example: Partition sales data by year.
+
+20. Explain difference between primary key and unique key.
+Answer:
+
+Primary Key: One per table, not null, unique.
+
+Unique Key: Multiple allowed, allows one NULL.
+Both enforce uniqueness but primary key is stricter.
